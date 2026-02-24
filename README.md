@@ -1,133 +1,143 @@
-# DevOps Capstone Template
-
+# DevOps Capstone Project
 [![License](https://img.shields.io/badge/License-Apache%202.0-blue.svg)](https://opensource.org/licenses/Apache-2.0)
 [![Python 3.9](https://img.shields.io/badge/Python-3.9-green.svg)](https://shields.io/)
+[![Flask](https://img.shields.io/badge/Flask-2.x-lightgrey.svg)](https://flask.palletsprojects.com/)
+[![Docker](https://img.shields.io/badge/Docker-ready-blue.svg)](https://www.docker.com/)
+[![OpenShift](https://img.shields.io/badge/OpenShift-Kubernetes-red.svg)](https://www.redhat.com/en/technologies/cloud-computing/openshift)
 
-This repository contains the starter code for the project in [**IBM-CD0285EN-SkillsNetwork DevOps Capstone Project**](https://www.coursera.org/learn/devops-capstone-project?specialization=devops-and-software-engineering) which is part of the [**IBM DevOps and Software Engineering Professional Certificate**](https://www.coursera.org/professional-certificates/devops-and-software-engineering)
+Este repositorio contiene el código necesario para completar el proyecto **"DevOps Capstone Project"** del curso [**IBM-CD0285EN-SkillsNetwork DevOps Capstone Project**](https://www.coursera.org/learn/devops-capstone-project?specialization=devops-and-software-engineering), que es parte del certificado profesional [**IBM DevOps and Software Engineering Professional Certificate**](https://www.coursera.org/professional-certificates/devops-and-software-engineering).
 
-## Usage
+---
 
-You should use this template to start your DevOps Capstone project. It contains all of the code that you will need to get started.
+## 📋 Descripción
 
-Do Not fork this code! It is meant to be used by pressing the  <span style=color:white;background:green>**Use this Template**</span> button in GitHub. This will copy the code to your own repository with no connection back to the original repository like a fork would. This is what you want.
+Este proyecto implementa un microservicio de **gestión de cuentas de clientes** para una tienda en línea, permitiendo realizar todas las operaciones CRUD (Crear, Leer, Actualizar, Eliminar) a través de una **RESTful API** desarrollada con Flask.
 
-## Development Environment
+A lo largo del proyecto se aplican prácticas modernas de DevOps, incluyendo desarrollo ágil, integración y entrega continua (CI/CD), contenedorización y despliegue en la nube.
 
-These labs are designed to be executed in the IBM Developer Skills Network Cloud IDE with OpenShift. Please use the links provided in the Coursera Capstone project to access the lab environment.
+---
 
-Once you are in the lab environment, you can initialize it with `bin/setup.sh` by sourcing it. (*Note: DO NOT run this program as a bash script. It sets environment variable and so must be sourced*):
+## 🗂️ Módulos del Proyecto
+
+### Módulo 1 — Planificación Ágil
+- Creación del repositorio GitHub y tablero Kanban
+- Definición de historias de usuario (User Stories)
+- Configuración del Product Backlog y Sprint Backlog con estimación de story points
+
+### Módulo 2 — Sprint 1: Desarrollo con TDD
+- Configuración del entorno de desarrollo
+- Implementación del microservicio usando **Test-Driven Development (TDD)**
+- Escritura de casos de prueba para operaciones CRUD (leer, actualizar, eliminar, listar)
+- Ejecución de **nosetests** con cobertura mínima del **95%**
+- Gestión de ramas y pull requests en GitHub
+
+### Módulo 3 — Sprint 2: CI y Seguridad
+- Configuración de un flujo de **GitHub Actions** para integración continua (CI)
+  - Linting con **Flake8**
+  - Ejecución de pruebas y validación de cobertura
+- Implementación de prácticas de codificación segura:
+  - **Flask-Talisman** para cabeceras de seguridad
+  - **Flask-CORS** para políticas de Cross-Origin Resource Sharing
+
+### Módulo 4 — Sprint 3: Despliegue en la Nube
+- Creación del **Dockerfile** y construcción de imagen Docker
+- Publicación de la imagen en **IBM Cloud Container Registry**
+- Despliegue manual en un clúster **OpenShift/Kubernetes**
+- Configuración de servicio **PostgreSQL** en OpenShift
+- Escritura de manifiestos YAML (Deployment y Service)
+
+### Módulo 5 — Pipeline de Entrega Continua (CD)
+- Creación de un pipeline **Tekton** para automatizar el despliegue
+  - Clonado del repositorio
+  - Linting y pruebas
+  - Construcción y publicación de imagen Docker
+  - Despliegue automático al clúster Kubernetes
+
+### Módulo 6 — Recolección de Evidencias
+- Capturas de pantalla, URLs de GitHub y outputs de laboratorios para evaluación final
+
+### Módulo 7 — Examen Final
+- Validación de conocimientos en DevOps aplicados durante el proyecto
+
+---
+
+## 🛠️ Tecnologías Utilizadas
+
+| Categoría | Tecnología |
+|---|---|
+| Lenguaje | Python 3.9 |
+| Framework | Flask |
+| Base de datos | PostgreSQL |
+| Pruebas | Nosetests, Coverage |
+| Calidad de código | Flake8 |
+| Seguridad | Flask-Talisman, Flask-CORS |
+| CI/CD | GitHub Actions, Tekton |
+| Contenedores | Docker |
+| Orquestación | Kubernetes / OpenShift |
+| Registro de imágenes | IBM Cloud Container Registry |
+| Gestión de proyecto | GitHub Kanban Board |
+
+---
+
+## 🚀 Instalación y Ejecución Local
 
 ```bash
-source bin/setup.sh
+# Clonar el repositorio
+git clone https://github.com/<tu-usuario>/devops-capstone-project.git
+cd devops-capstone-project
+
+# Instalar dependencias
+pip install -r requirements.txt
+
+# Ejecutar la aplicación
+flask run
 ```
 
-This will install Python 3.9, make it the default, modify the bash prompt, create a Python virtual environment and activate it.
+---
 
-After sourcing it you prompt should look like this:
+## 🧪 Ejecutar Pruebas
 
 ```bash
-(venv) theia:project$
+# Ejecutar pruebas con cobertura
+nosetests --with-coverage --cover-package=service
 ```
 
-## Useful commands
+---
 
-Under normal circumstances you should not have to run these commands. They are performed automatically at setup but may be useful when things go wrong:
-
-### Activate the Python 3.9 virtual environment
-
-You can activate the Python 3.9 environment with:
+## 🐳 Ejecutar con Docker
 
 ```bash
-source ~/venv/bin/activate
+# Construir la imagen
+docker build -t customer-accounts .
+
+# Ejecutar el contenedor
+docker run -p 8080:8080 customer-accounts
 ```
 
-### Installing Python dependencies
+---
 
-These dependencies are installed as part of the setup process but should you need to install them again, first make sure that the Python 3.9 virtual environment is activated and then use the `make install` command:
+## 📁 Estructura del Proyecto
 
-```bash
-make install
+```
+devops-capstone-project/
+├── service/                  # Código principal del microservicio
+│   ├── __init__.py
+│   ├── models.py             # Modelos de datos
+│   └── routes.py             # Endpoints de la API
+├── tests/                    # Casos de prueba
+│   └── test_routes.py
+├── .github/
+│   └── workflows/            # GitHub Actions CI/CD
+├── k8s/                      # Manifiestos Kubernetes
+│   ├── deployment.yaml
+│   └── service.yaml
+├── Dockerfile
+├── requirements.txt
+└── README.md
 ```
 
-### Starting the Postgres Docker container
+---
 
-The labs use Postgres running in a Docker container. If for some reason the service is not available you can start it with:
+## 📄 Licencia
 
-```bash
-make db
-```
-
-You can use the `docker ps` command to make sure that postgres is up and running.
-
-## Project layout
-
-The code for the microservice is contained in the `service` package. All of the test are in the `tests` folder. The code follows the **Model-View-Controller** pattern with all of the database code and business logic in the model (`models.py`), and all of the RESTful routing on the controller (`routes.py`).
-
-```text
-├── service         <- microservice package
-│   ├── common/     <- common log and error handlers
-│   ├── config.py   <- Flask configuration object
-│   ├── models.py   <- code for the persistent model
-│   └── routes.py   <- code for the REST API routes
-├── setup.cfg       <- tools setup config
-└── tests                       <- folder for all of the tests
-    ├── factories.py            <- test factories
-    ├── test_cli_commands.py    <- CLI tests
-    ├── test_models.py          <- model unit tests
-    └── test_routes.py          <- route unit tests
-```
-
-## Data Model
-
-The Account model contains the following fields:
-
-| Name | Type | Optional |
-|------|------|----------|
-| id | Integer| False |
-| name | String(64) | False |
-| email | String(64) | False |
-| address | String(256) | False |
-| phone_number | String(32) | True |
-| date_joined | Date | False |
-
-## Your Task
-
-Complete this microservice by implementing REST API's for `READ`, `UPDATE`, `DELETE`, and `LIST` while maintaining **95%** code coverage. In true **Test Driven Development** fashion, first write tests for the code you "wish you had", and then write the code to make them pass.
-
-## Local Kubernetes Development
-
-This repo can also be used for local Kubernetes development. It is not advised that you run these commands in the Cloud IDE environment. The purpose of these commands are to simulate the Cloud IDE environment locally on your computer. 
-
-At a minimum, you will need [Docker Desktop](https://www.docker.com/products/docker-desktop) installed on your computer. For the full development environment, you will also need [Visual Studio Code](https://code.visualstudio.com) with the [Remote Containers](https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.remote-containers) extension from the Visual Studio Marketplace. All of these can be installed manually by clicking on the links above or you can use a package manager like **Homebrew** on Mac of **Chocolatey** on Windows.
-
-Please only use these commands for working stand-alone on your own computer with the VSCode Remote Container environment provided.
-
-1. Bring up a local K3D Kubernetes cluster
-
-    ```bash
-    $ make cluster
-    ```
-
-2. Install Tekton
-
-    ```bash
-    $ make tekton
-    ```
-
-3. Install the ClusterTasks that the Cloud IDE has
-
-    ```bash
-    $ make clustertasks
-    ```
-
-You can now perform Tekton development locally, just like in the Cloud IDE lab environment.
-
-## Author
-
-[John Rofrano](https://www.coursera.org/instructor/johnrofrano), Senior Technical Staff Member, DevOps Champion, @ IBM Research, and Instructor @ Coursera
-
-## License
-
-Licensed under the Apache License. See [LICENSE](LICENSE)
-
-## <h3 align="center"> © IBM Corporation 2022. All rights reserved. <h3/>
+Este proyecto está licenciado bajo la [Apache License 2.0](https://opensource.org/licenses/Apache-2.0).
