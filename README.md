@@ -1,6 +1,6 @@
 # DevOps Capstone Project
 
-![Build Status](https://github.com/AddOn2394/devops-capstone-project/actions/workflows/ci-build.yaml/badge.svg)
+[![Build Status](https://github.com/AddOn2394/devops-capstone-project/actions/workflows/ci-build.yaml/badge.svg)](https://github.com/AddOn2394/devops-capstone-project/actions/workflows/ci-build.yaml)
 [![License](https://img.shields.io/badge/License-Apache%202.0-blue.svg)](https://opensource.org/licenses/Apache-2.0)
 [![Python 3.9](https://img.shields.io/badge/Python-3.9-green.svg)](https://shields.io/)
 [![Flask](https://img.shields.io/badge/Flask-2.x-lightgrey.svg)](https://flask.palletsprojects.com/)
